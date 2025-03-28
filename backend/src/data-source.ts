@@ -9,7 +9,7 @@ const AppDataSource = new DataSource({
   password: process.env.DB_PASSWORD || 'root',
   database: process.env.DB_NAME || 'url_shortener',
   entities: [__dirname + '/**/*.entity.{ts,js}'],
-  migrations: ['src/migrations/*.{ts,js}'],
+  migrations: [__dirname + '/migrations/*.ts'],
   migrationsTableName: 'migrations',
   synchronize: false,
 });
