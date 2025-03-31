@@ -7,5 +7,5 @@ export interface Url {
 }
 
 export interface CreateUrlDto {
-  url: string;
+  originalUrl: string;
 }

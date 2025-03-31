@@ -22,7 +22,7 @@ export default function UrlForm({ onSuccess }: { onSuccess: () => void }) {
       setIsLoading(true);
       setError(null);
 
-      const result = await shortenUrl({ url });
+      const result = await shortenUrl({ originalUrl: url });
       const baseUrl = window.location.origin;
       setShortenedUrl(`${baseUrl}/${result.slug}`);
       setUrl("");
