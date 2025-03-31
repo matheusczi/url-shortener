@@ -10,7 +10,7 @@ import {
 import { Response } from 'express';
 import { UrlService } from './url.service';
 
-@Controller('url')
+@Controller('api/v1/url')
 export class UrlController {
   constructor(private readonly urlService: UrlService) {}
 

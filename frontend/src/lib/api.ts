@@ -1,6 +1,6 @@
 import { Url, CreateUrlDto } from "@/types";
 
-const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3000";
+const API_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001";
 
 export async function shortenUrl(data: CreateUrlDto): Promise<Url> {
   const response = await fetch(`${API_URL}/url/shorten`, {
