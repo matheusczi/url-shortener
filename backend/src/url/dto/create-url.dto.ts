@@ -9,13 +9,15 @@ import {
 import { UniqueSlugValidator } from '../validators/unique-slug.validator';
 
 export class CreateUrlDto {
-  @IsNotEmpty()
-  @IsUrl()
+  @IsNotEmpty({ message: 'Please, insert a URL.' })
+  @IsUrl({}, { message: 'Please, insert a valid URL.' })
   originalUrl: string;
 
   @IsOptional()
   @IsString()
-  @Length(4, 10)
+  @Length(4, 10, {
+    message: 'Slug must be between 4 and 10 characters.',
+  })
   @Validate(UniqueSlugValidator)
   slug?: string;
 }

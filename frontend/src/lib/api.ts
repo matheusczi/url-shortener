@@ -13,7 +13,8 @@ export async function shortenUrl(data: CreateUrlDto): Promise<Url> {
   });
 
   if (!response.ok) {
-    throw new Error("Failed to shorten URL");
+    const errorData = await response.json();
+    throw new Error(errorData.message || "Failed to shorten URL");
   }
 
   return response.json();

@@ -28,8 +28,12 @@ export default function UrlForm({ onSuccess }: { onSuccess: () => void }) {
       setUrl("");
       onSuccess();
     } catch (err) {
-      setError("Failed to shorten URL. Please try again.");
-      console.error(err);
+      console.log(err);
+      if (err instanceof Error) {
+        setError(err.message);
+      } else {
+        setError("Failed to shorten URL. Please try again.");
+      }
     } finally {
       setIsLoading(false);
     }
