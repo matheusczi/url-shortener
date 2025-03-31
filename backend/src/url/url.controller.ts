@@ -15,6 +15,11 @@ import { CreateUrlDto } from './dto/create-url.dto';
 export class UrlController {
   constructor(private readonly urlService: UrlService) {}
 
+  @Get('')
+  async findAll() {
+    return this.urlService.findAll();
+  }
+
   @Post('shorten')
   async shorten(@Body() createUrlDto: CreateUrlDto) {
     return this.urlService.shortenUrl(createUrlDto);

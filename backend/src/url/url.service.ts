@@ -12,6 +12,10 @@ export class UrlService {
     private readonly urlRepository: Repository<Url>,
   ) {}
 
+  async findAll(): Promise<Url[]> {
+    return this.urlRepository.find();
+  }
+
   async shortenUrl(createUrlDto: CreateUrlDto): Promise<Url> {
     let { slug, originalUrl } = createUrlDto;
 
