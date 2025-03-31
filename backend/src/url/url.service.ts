@@ -21,9 +21,12 @@ export class UrlService {
     return this.urlRepository.save(url);
   }
 
-  async findBySlug(slug: string): Promise<Url> {
+  async findBySlug(
+    slug: string,
+    incrementVisits: boolean = true,
+  ): Promise<Url | null> {
     const url = await this.urlRepository.findOne({ where: { slug } });
-    if (url) {
+    if (url && incrementVisits) {
       url.visits += 1;
       await this.urlRepository.save(url);
     }
