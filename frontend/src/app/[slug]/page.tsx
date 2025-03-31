@@ -10,9 +10,10 @@ export default function RedirectPage({ params }: { params: { slug: string } }) {
   useEffect(() => {
     async function redirect() {
       try {
-        await getUrlBySlug(params.slug);
+        const { slug } = await params;
+        await getUrlBySlug(slug);
 
-        window.location.href = `${API_URL}/url/${params.slug}`;
+        window.location.href = `${API_URL}/url/${slug}`;
       } catch (error) {
         console.error(error);
         router.push("/not-found");
@@ -20,7 +21,7 @@ export default function RedirectPage({ params }: { params: { slug: string } }) {
     }
 
     redirect();
-  }, [params.slug, router]);
+  }, [params, router]);
 
   return (
     <div className="flex justify-center items-center h-screen">
