@@ -9,14 +9,15 @@ import {
 } from '@nestjs/common';
 import { Response } from 'express';
 import { UrlService } from './url.service';
+import { CreateUrlDto } from './dto/create-url.dto';
 
 @Controller('api/v1/url')
 export class UrlController {
   constructor(private readonly urlService: UrlService) {}
 
   @Post('shorten')
-  async shorten(@Body('url') url: string) {
-    return this.urlService.shortenUrl(url);
+  async shorten(@Body() createUrlDto: CreateUrlDto) {
+    return this.urlService.shortenUrl(createUrlDto);
   }
 
   @Get(':slug')
