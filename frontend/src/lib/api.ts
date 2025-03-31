@@ -1,6 +1,6 @@
 import { Url, CreateUrlDto } from "@/types";
 
-const API_URL =
+export const API_URL =
   process.env.NEXT_PUBLIC_API_URL || "http://localhost:3001/api/v1";
 
 export async function shortenUrl(data: CreateUrlDto): Promise<Url> {
@@ -21,9 +21,7 @@ export async function shortenUrl(data: CreateUrlDto): Promise<Url> {
 
 export async function getUrlBySlug(slug: string): Promise<Url> {
   try {
-    const response = await fetch(`${API_URL}/url/${slug}`, {
-      cache: "no-store",
-    });
+    const response = await fetch(`${API_URL}/url/${slug}/info`);
 
     if (!response.ok) {
       throw new Error("URL not found");

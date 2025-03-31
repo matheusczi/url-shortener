@@ -25,10 +25,17 @@ export class UrlController {
     return this.urlService.shortenUrl(createUrlDto);
   }
 
-  @Get(':slug')
+  @Get(':slug/info')
   async getUrlInfo(@Param('slug') slug: string) {
     const url = await this.urlService.findBySlug(slug, false);
     if (!url) throw new NotFoundException('URL not found');
     return url;
+  }
+
+  @Get(':slug')
+  async redirect(@Param('slug') slug: string, @Res() res: Response) {
+    const url = await this.urlService.findBySlug(slug);
+    if (!url) throw new NotFoundException('URL not found');
+    res.redirect(url.originalUrl);
   }
 }
