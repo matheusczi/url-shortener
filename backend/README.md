@@ -29,7 +29,7 @@ npm install
 
 2. Create a `.env` file in the root of the backend directory:
 
-```bash
+```text
 DB_HOST=localhost
 DB_PORT=5432
 DB_USER=postgres
