@@ -90,8 +90,8 @@ The backend provides the following API endpoints:
 
 For detailed instructions on setting up the development environment for each part of the application, please refer to:
 
-- [Backend README]()
-- [Frontend README]()
+- [Backend README](https://github.com/matheusczi/url-shortener/blob/main/backend/README.md)
+- [Frontend README](https://github.com/matheusczi/url-shortener/blob/main/frontend/README.md)
 
 ## License
 
