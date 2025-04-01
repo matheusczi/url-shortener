@@ -1,11 +1,11 @@
 import Link from "next/link";
 
-export default function NotFound() {
+export default function Custom404() {
   return (
     <div className="container mx-auto px-4 py-16 text-center">
       <h2 className="text-2xl font-bold mb-4">URL Not Found</h2>
       <p className="mb-8 text-gray-600 dark:text-gray-300">
-        The shortened URL you're looking for doesn't exist.
+        The shortened URL you&apos;re looking for doesn&apos;t exist.
       </p>
       <Link
         href="/"
